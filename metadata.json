@@ -1,0 +1,6 @@
+{
+  "name": "TASH Hardware",
+  "description": "Building Made Easier, Cheaper & Stress-Free. Leading construction solutions, building materials, civil works, and project support in Zimbabwe.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
