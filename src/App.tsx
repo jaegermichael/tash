@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, Check, ChevronDown, Menu, PackageCheck, Ruler, ShieldCheck, Truck, X, Phone, MapPin, Mail, Upload } from 'lucide-react';
 import { AreaChart, Area } from './charts/area-chart';
+import { HardwareShop } from './components/HardwareShop';
 
 const categories = [
   { n:'01', title:'Structural steel', copy:'Certified bars, mesh and sections for foundations and frames.', image:'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=85' },
@@ -15,7 +16,7 @@ const data = [
 ];
 const faqs = [
   ['Can you price from a bill of quantities?','Yes. Send your BOQ and our commercial team will return a consolidated, itemised quotation with lead times.'],
-  ['Do you deliver outside Nairobi?','We coordinate scheduled deliveries across Kenya through our vetted logistics network.'],
+  ['Do you deliver outside Harare?','We coordinate scheduled deliveries across Zimbabwe. Delivery options and lead times are confirmed with every quote.'],
   ['How do you verify material quality?','We source from approved manufacturers and provide compliance documentation for specified products.']
 ];
 
@@ -35,11 +36,11 @@ export default function App(){
     <header className="topbar"><span>HARARE · ZIMBABWE</span><span className="topbar-center">MATERIALS THAT KEEP PROJECTS MOVING</span><span>MON—SAT / 07:30—17:00</span></header>
     <nav className="nav">
       <a className="brand" href="#"><span className="brand-mark">T</span><span>TASH<small>HARDWARE</small></span></a>
-      <div className="navlinks"><a href="#materials">Materials</a><a href="#services">Services</a><a href="#proof">Why Tash</a><a href="#contact">Contact</a></div>
+      <div className="navlinks"><a href="#shop">Shop hardware</a><a href="#materials">Materials</a><a href="#services">Services</a><a href="#proof">Why Tash</a><a href="#contact">Contact</a></div>
       <button className="nav-cta" onClick={quote}>Request pricing <ArrowUpRight size={17}/></button>
       <button className="menu" onClick={()=>setMenu(!menu)} aria-label="Toggle menu">{menu?<X/>:<Menu/>}</button>
     </nav>
-    <AnimatePresence>{menu&&<motion.div initial={{height:0}} animate={{height:'auto'}} exit={{height:0}} className="mobile-menu"><a href="#materials">Materials</a><a href="#services">Services</a><a href="#proof">Why Tash</a><button onClick={quote}>Request pricing</button></motion.div>}</AnimatePresence>
+    <AnimatePresence>{menu&&<motion.div initial={{height:0}} animate={{height:'auto'}} exit={{height:0}} className="mobile-menu"><a href="#shop" onClick={()=>setMenu(false)}>Shop hardware</a><a href="#materials" onClick={()=>setMenu(false)}>Materials</a><a href="#services" onClick={()=>setMenu(false)}>Services</a><a href="#proof" onClick={()=>setMenu(false)}>Why Tash</a><button onClick={()=>{quote();setMenu(false)}}>Request pricing</button></motion.div>}</AnimatePresence>
 
     <main id="main-content">
       <section className="hero">
@@ -54,6 +55,8 @@ export default function App(){
       </section>
 
       <section className="ticker" aria-label="Services"><span>STEEL</span><i/> <span>CEMENT</span><i/> <span>ROOFING</span><i/> <span>PLUMBING</span><i/> <span>ELECTRICAL</span><i/> <span>TOOLS</span></section>
+
+      <HardwareShop />
 
       <section className="materials section" id="materials">
         <div className="section-head"><div><span className="kicker">THE SUPPLY DESK</span><h2>One partner.<br/>Every critical material.</h2></div><p>Source with confidence. Our team translates drawings and BOQs into coordinated orders that arrive when your programme needs them.</p></div>
