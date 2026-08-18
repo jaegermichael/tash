@@ -35,9 +35,9 @@ export default function App(){
     <a className="skip-link" href="#main-content">Skip to content</a>
     <header className="topbar"><span>HARARE · ZIMBABWE</span><span className="topbar-center">MATERIALS THAT KEEP PROJECTS MOVING</span><span>MON—SAT / 07:30—17:00</span></header>
     <nav className="nav">
-      <a className="brand" href="#"><span className="brand-mark">T</span><span>TASH<small>HARDWARE</small></span></a>
+      <a className="brand" href="#"><span className="brand-mark">OH</span><span>ONLINE<small>HARDWARE</small></span></a>
       <div className="navlinks"><a href="#shop">Shop hardware</a><a href="#materials">Materials</a><a href="#services">Services</a><a href="#proof">Why Tash</a><a href="#contact">Contact</a></div>
-      <button className="nav-cta" onClick={quote}>Request pricing <ArrowUpRight size={17}/></button>
+      <a className="nav-cta" href="#shop">Shop online <ArrowUpRight size={17}/></a>
       <button className="menu" onClick={()=>setMenu(!menu)} aria-label="Toggle menu">{menu?<X/>:<Menu/>}</button>
     </nav>
     <AnimatePresence>{menu&&<motion.div initial={{height:0}} animate={{height:'auto'}} exit={{height:0}} className="mobile-menu"><a href="#shop" onClick={()=>setMenu(false)}>Shop hardware</a><a href="#materials" onClick={()=>setMenu(false)}>Materials</a><a href="#services" onClick={()=>setMenu(false)}>Services</a><a href="#proof" onClick={()=>setMenu(false)}>Why Tash</a><button onClick={()=>{quote();setMenu(false)}}>Request pricing</button></motion.div>}</AnimatePresence>
@@ -48,8 +48,8 @@ export default function App(){
           <div className="eyebrow"><span/> BUILT FOR THE WORK AHEAD</div>
           <h1>Supply that<br/>shows up.</h1>
           <p>Building materials, hardware and project support for contractors who cannot afford delays.</p>
-          <div className="hero-actions"><button className="primary" onClick={quote}>Get an itemised quote <ArrowUpRight/></button><a href="#materials">Browse materials</a></div>
-          <div className="hero-stats"><div><b>BOQ</b><span>Pricing support</span></div><div><b>QA</b><span>Approved sources</span></div><div><b>ZW</b><span>Nationwide supply</span></div></div>
+          <div className="hero-actions"><a className="primary" href="#shop">Shop hardware online <ArrowUpRight/></a><a href="#materials">Bulk building materials</a></div>
+          <div className="hero-stats"><div><b>01</b><span>Shop online</span></div><div><b>02</b><span>Confirm total</span></div><div><b>03</b><span>Delivered to you</span></div></div>
         </div>
         <div className="hero-image"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=82" alt="Construction team on an active building site" width="1800" height="1200" fetchPriority="high" decoding="async"/><div className="image-note"><PackageCheck size={20}/><span><b>Site-ready orders</b>Checked, packed, dispatched.</span></div></div>
       </section>
@@ -86,6 +86,6 @@ export default function App(){
         {sent?<div className="success" role="status"><Check/><h3>Email draft opened.</h3><p>Review the message, attach your BOQ if needed, then send it from your email app.</p><button type="button" onClick={()=>setSent(false)}>Edit request</button></div>:<form onSubmit={submitQuote}><label htmlFor="quote-name">Your name<input id="quote-name" name="name" autoComplete="name" required placeholder="e.g. Tawanda Moyo"/></label><label htmlFor="quote-contact">Phone or email<input id="quote-contact" name="contact" autoComplete="email" required placeholder="How should we reach you?"/></label><label htmlFor="quote-project">Project & location<input id="quote-project" name="project" required placeholder="e.g. Residential build, Harare"/></label><label htmlFor="quote-date">Required by<input id="quote-date" name="date" type="date"/></label><label className="full" htmlFor="quote-requirements">What do you need?<textarea id="quote-requirements" name="requirements" required placeholder="List materials, specifications and quantities…"/></label><div className="upload-note full"><Upload/><span><b>Have a BOQ?</b> Attach the PDF or spreadsheet to the email draft that opens next.</span></div><button className="full" type="submit">Create quote email <ArrowUpRight/></button></form>}
       </section>
     </main>
-    <footer id="contact"><a className="brand inverse" href="#"><span className="brand-mark">T</span><span>TASH<small>HARDWARE</small></span></a><p>Reliable materials. Practical support. Built around your programme.</p><div><a href="#materials">Materials</a><a href="#services">Services</a><a href="#quote">Request pricing</a></div><small>© 2026 TASH HARDWARE LTD · ALL RIGHTS RESERVED</small></footer>
+    <footer id="contact"><a className="brand inverse" href="#"><span className="brand-mark">OH</span><span>ONLINE<small>HARDWARE</small></span></a><p>Reliable materials. Practical support. Built around your programme.</p><div><a href="#materials">Materials</a><a href="#services">Services</a><a href="#quote">Request pricing</a></div><small>© 2026 ONLINE HARDWARE · ALL RIGHTS RESERVED</small></footer>
   </div>
 }
